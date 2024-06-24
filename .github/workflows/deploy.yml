@@ -27,5 +27,5 @@ jobs:
       
       - name: Deploy Docker container
         run: |
-          docker run -it -p 3000:4200 tonijro31/node-apirest:latest
+          docker run -d -p 3000:4200 tonijro31/node-apirest:latest
 
