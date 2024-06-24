@@ -1,0 +1,23 @@
+name: Deploy Image
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build and deploy image
+      run: |
+        # Aquí colocas los comandos para construir y desplegar tu imagen
+        # Por ejemplo, si usas Docker:
+        docker build -t node-restapi .
+        docker run -p 3000:4200 node-restapi
+        docker tag node-restapi:latest tonijro31/node-restapi:latest
+        docker push tonijro31/node-restapi:latest
