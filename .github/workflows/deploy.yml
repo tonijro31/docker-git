@@ -21,11 +21,11 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t node-apirest .
-          
+          docker build -t tonijro31/node-apirest:latest .
+          docker push tonijro31/node-apirest:latest
 
       
       - name: Deploy Docker container
         run: |
-          docker run -it -p 3000:4200 node-apirest
+          docker run -it -p 3000:4200 tonijro31/node-apirest:latest
 
